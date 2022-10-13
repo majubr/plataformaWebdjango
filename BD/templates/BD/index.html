@@ -1,0 +1,131 @@
+{%extends 'base.html'%}
+
+{%block conteudo%}
+<br><br>
+
+ <h1 class="mt-5">Banco de dados biológicos</h1>
+
+<form method="get" action="{% url 'busca' %}">
+  <div class="form-group row">
+    <div class="col-12">
+      <input class="form-control"
+             type="search" value="{{ request.GET.termo }}"
+             id="search-input"
+             placeholder="Digite sua pesquisa"
+             name="termo">
+    </div>
+  </div>
+</form>
+
+<div>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+
+</div>
+
+<br><br>
+
+<div>
+    A inserção de novos dados é permitido somente para administradores do sistema
+    <br>
+    <a href = "{% url 'data_upload' %}"class = "btn btn-primary" >Para inserir novos dados clique aqui</a>
+    <br>
+    <br>
+    <br>
+    Para download dos dados visualizados escolha opçao abaixo
+</div>
+
+<div>
+    <div class="col=md-4">
+        <a href = "{% url 'export-excel' % }" class = "btn btn-primary">Exportar Excel</a>
+        <a href = "{% url 'export-csv' % }" class = "btn btn-secondary">Exportar CSV</a>
+
+    </div>
+
+</div>
+
+
+<style>
+
+
+    tr {
+  height: 50px;
+}
+
+td {
+  width: 100px;
+
+</style>
+
+
+
+<br><br>
+
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+                 <th align="center" scope="col">ID</th>
+                <th align="center" scope="col">>Data</th>
+              <th align="center" scope="col">Ano</th>
+              <th align="center" scope="col">Estação</th>
+              <th align="center" scope="col">Classe</th>
+              <th align="center" scope="col">Família</th>
+              <th align="center" scope="col">Gênero</th>
+              <th align="center" scope="col">Espécie</th>
+                <th align="center" scope="col">Nome popular</th>
+                <th align="center" scope="col">Número registros</th>
+                <th align="center" scope="col">Metodologia</th>
+                <th align="center" scope="col">Ponto amostral</th>
+                <th align="center" scope="col">Região</th>
+                <th align="center" scope="col">Latitude</th>
+                <th align="center" scope="col">Longitude</th>
+                <th align="center" scope="col">Altitude</th>
+                <th align="center" scope="col">Responsável técnico</th>
+                <th align="center" scope="col">Especialidade</th>
+                <th align="center" scope="col">Projeto</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for especie in especies%}
+
+            <tr>
+                <td align="left">{{especie.id}}</td>
+              <td align="left" >{{ especie.Data }}</td>
+               <td align="left">{{ especie.Ano }}</td>
+               <td align="left">{{ especie.Classe }}</td>
+               <td align="left">{{ especie.Ordem}}</td>
+               <td align="left">{{ especie.Familia}}</td>
+               <td align="left">{{ especie.Genero }}</td>
+               <td align="left">
+            <a href = "{% url 'ver_especie' especie.id%}">
+               <i> {{ especie.Especie }} </i>
+            </a>
+              </td>
+                <td align="left">{{ especie.Nome_popular }}</td>
+                <td align="left">{{ especie.Numero_registros }}</td>
+                <td align="left">{{ especie.Metodologia }}</td>
+                <td align="left">{{ especie.Ponto_amostral }}</td>
+                <td align="left">{{ especie.Regiao }}</td>
+                <td align="left">{{ especie.Latitude }}</td>
+                 <td align="left">{{ especie.Longitude }}</td>
+                 <td align="left">{{ especie.Responsavel_tecnico }}</td>
+                <td align="left">{{ especie.Especialidade }}</td>
+                <td align="left">{{ especie.Projeto }}</td>
+            </tr>
+
+            {%endfor%}
+          </tbody>
+        </table>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+
+{%endblock%}
+

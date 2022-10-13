@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{%block conteudo%}
+ <h1 class="mt-5">{{contato.nome}}</h1>
+    {% if contato.foto %}
+<p>
+    <img src="{{contato.foto.url}}"  style="max-width: 250px;height=auto;">
+</p>
+    {% endif %}
+        <dl>
+          <dt>ID</dt>
+          <dd>{{contato.id}}</dd>
+
+          <dt>E-mail</dt>
+          <dd>{{contato.email}}</dd>
+
+            <dt>Função</dt>
+          <dd>{{contato.função}}</dd>
+
+          <dt>Categoria</dt>
+          <dd>{{contato.categoria}}</dd>
+
+          </dd>
+        </dl>
+{%endblock%}

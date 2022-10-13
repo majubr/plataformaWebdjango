@@ -1,0 +1,46 @@
+{% load static %}
+
+<html lang="pt">
+
+<head>
+    <title>Banco de dados / Biodiversidade</title>
+
+  {% include 'parciais/_head.html'%}
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Banco de dados / Biodiversidade</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{%static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  {% include 'parciais/_nav.html'%}
+
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+
+    {%block conteudo%} {%endblock%}
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{%static 'vendor/jquery/jquery.slim.min.js'%}"></script>
+  <script src="{%static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+</body>
+
+</html>

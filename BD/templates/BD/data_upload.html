@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+
+{%block conteudo%}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for='arquivo'>Selecionar um arquivo &#187;</label>
+    <input name="file" id='file' type='file'>
+    <p>Insira apenas arquivos CSV no formato orientado</p>
+    <button type="submit">Upload</button>
+</form>
+
+{%endblock%}
